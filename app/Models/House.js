@@ -12,44 +12,43 @@ export class House {
     this.description = data.description
   }
 
-  static HouseForm(car = {}) {
+  static HouseForm(house = {}) {
     return `
-    <form onsubmit="app.housesController.createHouse()"
-            class="row bg-light">
+    <form onsubmit="app.housesController.${house.id ? `updateHouse('${house.id}')` : 'createHouse()'}" class="row bg-light">
             <div class="col-6 col-md-4">
               <label for="year">Year Built</label>
               <input type="number" id="year" name="year" class="form-control" placeholder="ex. 1995" min="0"
-                max="5000" required>
+                max="5000" required value="${house.year || 1990}">
             </div>
             <div class="col-md-4">
               <label for="bedrooms">Bedrooms</label>
               <input type="number" id="bedrooms" name="bedrooms" class="form-control" placeholder="# of Bed" min="0"
-                max="50" required>
+                max="50" required value="${house.bedrooms || 0}>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4"> 
               <label for="bathrooms">Bathrooms</label>
               <input type="number" id="bathrooms" name="bathrooms" class="form-control" placeholder="# of Bath" min="0"
-                max="50" required>
+                max="50" required value="${house.bathrooms || 0}>
             </div>
             <div class="col-md-6">
               <label for="levels">Levels</label>
               <input type="number" id="levels" name="levels" class="form-control" min="0" max="200" placeholder="levels"
-                required>
+                required value="${house.levels || 1}>
             </div>
             <div class="col-md-6">
               <label for="price">Price</label>
               <input type="number" id="price" name="price" class="form-control" min="0" max="50000000"
-                placeholder="ex: 500000" required>
+                placeholder="ex: 500000" required value="${house.price || 1}>
             </div>
             <div class="col-12">
               <label for="description">Description</label>
               <input type="text" id="description" name="description" class="form-control" maxlength="100"
-                placeholder="Describe your house">
+                placeholder="Describe your house" value="${house.description || ''}>
             </div>
             <div class="col-12">
               <label for="imgUrl">Image URL</label>
               <input type="url" id="imgUrl" name="imgUrl" class="form-control" maxlength="300"
-                placeholder="Image URL here">
+                placeholder="Image URL here" value="${house.imgUrl || ''}>
             </div>
             <div class="p-2 text-end">
               <button type="button" class="btn">Cancel</button>
