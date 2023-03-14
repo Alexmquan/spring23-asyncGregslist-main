@@ -64,4 +64,13 @@ export class HousesController {
       }
     }
   }
+
+  openEditHouseForm(id) {
+    let house = appState.houses.find(h => h.id == id)
+  }
+
+
+
+
+
 }

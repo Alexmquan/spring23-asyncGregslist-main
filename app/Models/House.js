@@ -23,32 +23,32 @@ export class House {
             <div class="col-md-4">
               <label for="bedrooms">Bedrooms</label>
               <input type="number" id="bedrooms" name="bedrooms" class="form-control" placeholder="# of Bed" min="0"
-                max="50" required value="${house.bedrooms || 0}>
+                max="50" required value="${house.bedrooms || 0}">
             </div>
             <div class="col-md-4"> 
               <label for="bathrooms">Bathrooms</label>
               <input type="number" id="bathrooms" name="bathrooms" class="form-control" placeholder="# of Bath" min="0"
-                max="50" required value="${house.bathrooms || 0}>
+                max="50" required value="${house.bathrooms || 0}">
             </div>
             <div class="col-md-6">
               <label for="levels">Levels</label>
               <input type="number" id="levels" name="levels" class="form-control" min="0" max="200" placeholder="levels"
-                required value="${house.levels || 1}>
+                required value="${house.levels || 1}">
             </div>
             <div class="col-md-6">
               <label for="price">Price</label>
               <input type="number" id="price" name="price" class="form-control" min="0" max="50000000"
-                placeholder="ex: 500000" required value="${house.price || 1}>
+                placeholder="ex: 500000" required value="${house.price || 1}">
             </div>
             <div class="col-12">
               <label for="description">Description</label>
               <input type="text" id="description" name="description" class="form-control" maxlength="100"
-                placeholder="Describe your house" value="${house.description || ''}>
+                placeholder="Describe your house" value="${house.description || ''}">
             </div>
             <div class="col-12">
               <label for="imgUrl">Image URL</label>
               <input type="url" id="imgUrl" name="imgUrl" class="form-control" maxlength="300"
-                placeholder="Image URL here" value="${house.imgUrl || ''}>
+                placeholder="Image URL here" value="${house.imgUrl || ''}">
             </div>
             <div class="p-2 text-end">
               <button type="button" class="btn">Cancel</button>
