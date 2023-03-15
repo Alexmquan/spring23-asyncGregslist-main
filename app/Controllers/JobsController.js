@@ -64,7 +64,8 @@ export class JobsController {
   }
 
   openEditJobForm(id) {
-    let job = appState.houses.find
+    let job = appState.jobs.find(j => j.id == id)
+    setHTML('edit-form', Job.dynamicJobForm(job))
   }
 
 
