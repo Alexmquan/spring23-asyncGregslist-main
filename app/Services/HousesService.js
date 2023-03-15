@@ -23,6 +23,14 @@ class HousesService {
     await sandbox.delete(`houses/${id}`)
     appState.houses = appState.houses.filter(house => house.id != id)
   }
+
+  async updateHouse(id, editData) {
+    // debugger
+    const res = await sandbox.put(`houses/${id}`, editData)
+    const updateIndex = appState.houses.findIndex(h => h.id == id)
+    appState.houses.splice(updateIndex, 1, new House(res.data))
+    appState.emit('houses')
+  }
 }
 
 export const housesService = new HousesService();  

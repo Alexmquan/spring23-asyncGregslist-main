@@ -22,6 +22,7 @@ export class Car {
         <p class="text-warning">${this.AvgMileage}</p>
         <button class="btn btn-danger" onclick="app.carsController.deleteCar('${this.id}')"> <i class="mdi mdi-delete-forever"></i></button>
         <button class="btn btn-warning" onclick="app.carsController.openEditCarForm('${this.id}')" data-bs-toggle="modal"
+        data-bs-target="#edit-modal">onclick="app.carsController.openEditCarForm('${this.id}')" data-bs-toggle="modal"
         data-bs-target="#edit-modal"><i class="mdi mdi-pen"></i></button>
       </div>
     </div>

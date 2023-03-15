@@ -69,7 +69,8 @@ export class House {
       <p><b>Description:</b>${this.description}</p>
       <div class="justify-content-end d-flex p-2">
       <button class="btn selectable bg-warning mx-2 elevation-2" onclick="app.housesController.deleteHouse('${this.id}')"><i class="mdi mdi-delete"></i></button>
-      <button class="btn selectable bg-success elevation-2"><i class="mdi mdi-pen"></i></button>
+      <button class="btn selectable bg-success elevation-2" onclick="app.housesController.openEditHouseForm('${this.id}')" data-bs-toggle="modal"
+      data-bs-target="#edit-modal"><i class="mdi mdi-pen"></i></button>
     </div>
     </div>
   </div>`

@@ -67,9 +67,21 @@ export class HousesController {
 
   openEditHouseForm(id) {
     let house = appState.houses.find(h => h.id == id)
+    setHTML('edit-form', House.HouseForm(house))
   }
 
-
+  async updateHouse(id) {
+    try {
+      event.preventDefault()
+      const form = event.target
+      const formUpdate = getFormData(form)
+      await housesService.updateHouse(id, formUpdate)
+      bootstrap.Modal.getOrCreateInstance('#edit-Modal').hide()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
 
 
 
