@@ -24,7 +24,12 @@ class JobsService {
     appState.jobs = appState.jobs.filter(j => j.id != id)
   }
 
-
+  async updateJob(id, editData) {
+    const res = await sandbox.put(`jobs/${id}`, editData)
+    const updateIndex = appState.jobs.findIndex(j => j.id == id)
+    appState.jobs.splice(updateIndex, 1, new Job(res.data))
+    appState.emit('jobs')
+  }
 
 }
 

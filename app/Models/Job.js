@@ -21,7 +21,8 @@ export class Job {
       <div class="justify-content-end d-flex">
         <button class="btn selectable bg-warning" onclick="app.jobsController.deleteJob('${this.id}')"><i
             class="mdi mdi-delete"></i></button>
-        <button class="btn selectable bg-success" onclick="app.jobsController.openEditJobForm('${this.id}')"><i
+        <button class="btn selectable bg-success" onclick="app.jobsController.openEditJobForm('${this.id}')" data-bs-toggle="modal"
+        data-bs-target="#edit-modal"><i
             class="mdi mdi-pen"></i></button>
       </div>
     </div>
@@ -29,34 +30,34 @@ export class Job {
     `
   }
 
-  // job.id ? `updateJob('${job.id}')` : createJob()'
+
 
   static dynamicJobForm(job = {}) {
     return ` 
-     <form onsubmit="app.jobsController.createJobs()"
-     class="row bg-light">
+    <form onsubmit="app.jobsController.${job.id ? `updateJob('${job.id}')` : 'createJobs()'}"
+      class="row bg-light">
     <div class="col-6">
       <label for="jobTitle">Job Title</label>
       <input type="text" name="jobTitle" id="jobTitle" class="form-control" placeholder="Job Title" required
-        value="">
+        value="${job.jobTitle || ''} ">
     </div>
     <div class="col-6">
       <label for="company">Company name</label>
       <input type="text" name="company" id="company" class="form-control" placeholder="Company Name" required
-        value="">
+        value="${job.company || ''}">
     </div>
     <div class="col-6">
       <label for="hours">Hours</label>
-      <input type="number" name="hours" id="hours" class="form-control" placeholder="hours" required value="">
+      <input type="number" name="hours" id="hours" class="form-control" placeholder="hours" required value="${job.hours || 0}">
     </div>
     <div class="col-6">
       <label for="rate">Rate</label>
-      <input type="number" name="rate" id="rate" class="form-control" placeholder="rate" required value="">
+      <input type="number" name="rate" id="rate" class="form-control" placeholder="rate" required value="${job.rate || 0}">
     </div>
     <div class="col-12">
       <label for="description">Description</label>
       <input type="text" name="description" id="description" class="form-control" placeholder="Description"
-        value="">
+        value="${job.description || ''}">
     </div>
     <div class="p-2 text-end">
       <button type="button" class="btn">Cancel</button>

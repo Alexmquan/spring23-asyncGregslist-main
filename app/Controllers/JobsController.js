@@ -64,10 +64,22 @@ export class JobsController {
   }
 
   openEditJobForm(id) {
+    console.log("testing open editjobform")
     let job = appState.jobs.find(j => j.id == id)
     setHTML('edit-form', Job.dynamicJobForm(job))
   }
 
-
+  async updateJob(id) {
+    try {
+      event.preventDefault()
+      const form = event.target
+      const formUpdate = getFormData(form)
+      await jobsService.updateJob(id, formUpdate)
+      bootstrap.Modal.getOrCreateInstance('#edit-modal').hide()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
 
 }
